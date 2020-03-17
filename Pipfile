@@ -9,6 +9,7 @@ verify_ssl = true
 ipykernel = "*"
 requests = "*"
 gunicorn = "==20.0.4"
+flask = "*"
 
 [requires]
 python_version = "3.7"
