@@ -11,7 +11,7 @@ def return_recommendation():
 
 @app.route('/best')
 def return_best_time():
-    return f'Return from route /best:  "{\'id\' : \'123\', \'recommended_time\': \'1 AM\'}'
+    return f'Return from route /best:  "JSON message"'
 
 
 @app.route('/')
