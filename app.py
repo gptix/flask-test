@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/recommend')
 def return_recommendation():
-    return request.data
+    return f'Return from route /recommend:  "1 AM"'
 
 
 @app.route('/')
