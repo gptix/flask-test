@@ -7,12 +7,12 @@ app = Flask(__name__)
 
 @app.route('/recommend')
 def return_recommendation():
-    return request
+    return request.data
 
 
 @app.route('/')
 def hello():
-    return request # "Hello World!"
+    return request.data # "Hello World!"
 
 
 # @app.route('/<name>')
