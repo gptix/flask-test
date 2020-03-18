@@ -9,6 +9,10 @@ app = Flask(__name__)
 def return_recommendation():
     return f'Return from route /recommend:  "1 AM"'
 
+@app.route('/best')
+def return_best_time():
+    return f'Return from route /best:  "{'id' : 123, 'recommended_time': "1 AM"}"'
+
 
 @app.route('/')
 def hello():
