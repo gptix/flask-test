@@ -5,7 +5,7 @@ from flask import Flask, request
 app = Flask(__name__)
 
 
-@app.route('/recommend', methods=['POST'])
+@app.route('/recommend', methods=['POST', 'GET'])
     """Accept only POST requests. For now, simply return
 the entire request."""
 def return_recommendation():
