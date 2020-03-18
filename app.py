@@ -5,9 +5,9 @@ from flask import Flask, request
 app = Flask(__name__)
 
 
-#@app.route('/recommend', methods=['POST', 'GET'])
-#def return_recommendation():
-#    return request
+@app.route('/recommend')
+def return_recommendation():
+    return request
 
 
 @app.route('/')
