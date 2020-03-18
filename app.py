@@ -12,7 +12,7 @@ def return_recommendation():
 
 @app.route('/')
 def hello():
-    return "Hello World!"
+    return request # "Hello World!"
 
 
 # @app.route('/<name>')
