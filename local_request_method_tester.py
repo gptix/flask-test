@@ -35,8 +35,17 @@ print("Done")
 # 127.0.0.1 - - [19/Mar/2020 19:36:56] "GET /post_or_get HTTP/1.1" 200 -
 
 
-# Test '/recommender' route
+# Test '/recommender' route locally
 u = 'http://localhost:5000/recommend'
+data = json.dumps({'name': 'test', 'description': 'some test repo'}) # data gets ingnored anyway
+response_test = requests.post(url=u, data=data).text
+print(response_test)
+
+# As expected
+# {"recommended_time":"01:30"}
+
+# Test '/recommender' route on Heroku
+u = 'https://gt-wordcount-pro.herokuapp.com/recommend'
 data = json.dumps({'name': 'test', 'description': 'some test repo'}) # data gets ingnored anyway
 response_test = requests.post(url=u, data=data).text
 print(response_test)
