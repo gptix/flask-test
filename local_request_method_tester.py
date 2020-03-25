@@ -7,11 +7,16 @@ import json
 
 URL_base = "http://localhost:5000/"
 
+
+# URL_base = "https://gt-wordcount-pro.herokuapp.com/"
 # Define routes to test
-routes = ['recommend']
-# routes = ['', 'post_only', 'get_only', 'post_or_get', 'recommend']
+# routes = ['recommend']
+routes = ['', 'post_only', 'get_only', 'post_or_get', 'recommend']
 
 URLs = [URL_base + r for r in routes]
+
+
+URLs = [URL_base + 'login']
 
 # Dummy data to pass via request
 data = {}
