@@ -1,9 +1,12 @@
 import requests
 import json
 
-url = 'http://localhost:5000/header_test'
+url = 'http://localhost:5000/unprotected'
+url = 'https://gt-wordcount-pro.herokuapp.com/protected'
+
+
 payload = {"message" : "POST request for test"}
-headers = {'token' : '12345'}
+headers = {'Authorization' : 'access_token myToken'}
 
 r = requests.post(url, data=json.dumps(payload), headers=headers)
 
