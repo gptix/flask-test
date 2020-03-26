@@ -10,6 +10,7 @@ ipykernel = "*"
 requests = "*"
 gunicorn = "==20.0.4"
 flask = "*"
+pyjwt = "*"
 
 [requires]
 python_version = "3.7"
