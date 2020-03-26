@@ -2,7 +2,7 @@ import requests
 import json
 
 url = 'http://localhost:5000/unprotected'
-url = 'https://gt-wordcount-pro.herokuapp.com/'
+url = 'https://gt-wordcount-pro.herokuapp.com/unprotected'
 
 
 payload = {"message" : "POST request for test"}
