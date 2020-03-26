@@ -8,6 +8,7 @@ app = Flask(__name__)
 
 # test_user = 'jud'
 app.config['SECRET_KEY'] = 'mickeymouse'
+test_token = ''
 # exp_string = datetime.datetime.utcnow() + datetime.timedelta(minutes=1440)
 # test_token = jwt.encode({'user' : test_user, 'exp' :  10000000}, app.config['SECRET_KEY'])
 # decoded_token = jwt.decode('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoianVkIiwiZXhwIjoxMDAwMDAwMH0.MRd2BuEjL4mUtwBzRymI_R3Tf67_1COhwbxAMFpysd4', app.config['SECRET_KEY'])
@@ -16,7 +17,7 @@ def token_required(func_to_wrap):
     @wraps(func_to_wrap)
     def decorated(*args, **kwargs):
         token = request.args.get('token')
-
+        
         if not token:
             return jsonify({'message' : 'Token is missing.'}), 403
 
@@ -33,6 +34,17 @@ def token_required(func_to_wrap):
 
 
 
+
+
+@app.route('/')
+def index():
+    return jsonify({'message' : 'Index page.'})
+
+@app.route('/header_test', methods=['POST'])
+def header_test():
+    token_received = request.headers['token']
+    print(f'token received: {token_received}')
+    return jsonify({'token received' : token_received})
 
 @app.route('/unprotected')
 def unprotected():
@@ -53,10 +65,10 @@ def login():
         exp_string = datetime.datetime.utcnow() + datetime.timedelta(minutes=30)
 
         token = jwt.encode({'user' : auth.username, 'exp' :  exp_string}, app.config['SECRET_KEY'])
+        # test_token = token # obvs use for testing
 
-        # return {'user' : auth.username, 'exp' :  exp_string}
         return jsonify({'token' : token.decode('UTF-8')})
-        # return jsonify({'token' : test_token.decode('UTF-8')})
+
     
     return jsonify(auth)
     return ('Could not verify!', 401, {'WWW-Authenticate' : 'Basic realm="Login Required"'})
